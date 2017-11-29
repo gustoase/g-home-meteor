@@ -11,10 +11,7 @@ Meteor.methods({
         });
 
         return true;
-    }
-});
-
-Meteor.methods({
+    },
     'admin.module.edit'({_id, title, module, port }) {
         ModuleSchema.validate({ title, module, port });
 
@@ -25,10 +22,7 @@ Meteor.methods({
         });
 
         return true;
-    }
-});
-
-Meteor.methods({
+    },
     'admin.module.delete'(_id) {
 
         if (Module.find({_id: _id}).count() === 0) {
