@@ -1,2 +1,10 @@
-node_modules/
 .idea
+# settings file to ignore to protect API keys
+settings.json
+# npm package files to ignore
+node?modules/
+npm-debug.log
+.DS_Store
+.AppleDouble
+.LSOverride
+.meteor/local/*

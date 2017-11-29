@@ -1,6 +1,16 @@
 <head>
-    <title>simple</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>G-Home</title>
 </head>
+
+<body></body>
+
+<template name="app_body">
+    <div id="wrapper">
+        {{> ui_sidebar_left}}
+        <main id="page-content-wrapper" role="main">
+            {{> Template.dynamic template=main}}
+        </main>
+    </div>
+</template>

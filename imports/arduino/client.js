@@ -1,7 +1,7 @@
 var five = require("johnny-five");
 var create = require('./helper').create;
-var Tasks = require('./mongo/TasksSchema').Tasks;
-var MongoWatch = require('mongo-watch');
+// var Tasks = require('./mongo/TasksSchema').Tasks;
+// var MongoWatch = require('mongo-watch');
 
 
 // var board = new five.Board();
@@ -25,21 +25,20 @@ var MongoWatch = require('mongo-watch');
 //     }, 1000);
 // });
 
-Tasks.find({}, function (err, docs) {
-    console.log(docs);
-});
-
-var watcher = new MongoWatch({
-    format: 'pretty',
-    db: 'meteor',
-    port: 3001,
-});
-watcher.debug = console.log;
-
-watcher.watch('meteor.tasks', function (event) {
-   console.log('event-----' + event.operation, event.data);
-});
-
+// Tasks.find({}, function (err, docs) {
+//     console.log(docs);
+// });
+//
+// var watcher = new MongoWatch({
+//     format: 'pretty',
+//     db: 'meteor',
+//     port: 3001,
+// });
+// watcher.debug = console.log;
+//
+// watcher.watch('meteor.tasks', function (event) {
+//    console.log('event-----' + event.operation, event.data);
+// });
 
 // module.exports = {
 //     /**

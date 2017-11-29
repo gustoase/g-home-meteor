@@ -1,0 +1,38 @@
+<template name="ui_sidebar_left">
+    <div id="sidebar-wrapper">
+        <aside id="sidebar">
+            <ul id="sidemenu" class="sidebar-nav">
+                <li>
+                    <a href="{{pathFor 'main'}}" class="{{activeListClass 'main'}}">
+                        <span class="sidebar-icon"><i class="ion-home"></i></span>
+                        <span class="sidebar-title">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{pathFor 'module.list'}}" class="{{activeListClass 'module.list'}}">
+                        <span class="sidebar-icon"><i class="ion-toggle-filled"></i></span>
+                        <span class="sidebar-title">Активные модули</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{pathFor 'admin.module.list'}}" class="{{activeListClass 'admin.module.list'}}">
+                        <span class="sidebar-icon"><i class="ion-settings"></i></span>
+                        <span class="sidebar-title">Настройки</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+</template>
+
+<!--<li>-->
+    <!--<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">-->
+        <!--<span class="sidebar-icon"><i class="fa fa-users"></i></span>-->
+        <!--<span class="sidebar-title">Management</span>-->
+        <!--<b class="caret"></b>-->
+    <!--</a>-->
+    <!--<ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">-->
+        <!--<li><a href="#"><i class="fa fa-caret-right"></i>Users</a></li>-->
+        <!--<li><a href="#"><i class="fa fa-caret-right"></i>Roles</a></li>-->
+    <!--</ul>-->
+<!--</li>-->

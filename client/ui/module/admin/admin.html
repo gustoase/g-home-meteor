@@ -1,0 +1,100 @@
+<!--список модулей-->
+<template name="ui_module_admin_list">
+    <div class="row">
+        <a class="btn btn-primary" href="{{pathFor 'admin.module.add'}}" role="button">Добавить новый модуль</a>
+    </div>
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Название</th>
+                <th>Модуль</th>
+                <th>Порт</th>
+                <th><i class="ion-wrench"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each modules}}
+                {{> ui_module_admin_list_tr}}
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</template>
+
+<template name="ui_module_admin_list_tr">
+    <tr>
+        <th scope="row">{{_id}}</th>
+        <td>{{title}}</td>
+        <td>{{moduleType.name}}</td>
+        <td>{{port}}</td>
+        <td>
+            <button class="btn delete-module"><i class="ion-trash-b"></i></button>
+            <a href="{{pathFor 'admin.module.edit' _id=_id}}" class="btn edit-module"><i class="ion-edit"></i></a>
+        </td>
+    </tr>
+</template>
+
+<!--форма добавления модуля-->
+<template name="ui_module_admin_new_module">
+    <div class="row">
+        <div class="col-9">
+            <form class="new-module">
+                <div class="form-group">
+                    <label for="title">Назначение модуля</label>
+                    <input type="text" class="form-control form-control-lg" name="title" id="title">
+                </div>
+                <div class="form-group">
+                    <label for="module">Название модуля</label>
+                    <select class="form-control form-control-lg" name="module" id="module">
+                    {{#each module_types}}
+                        <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="port">Порт модуля в Arduino</label>
+                    <input type="number" class="form-control form-control-lg" name="port" id="port">
+                </div>
+
+                <a class="btn btn-danger" href="{{pathFor 'admin.module.list'}}" role="button">Отмена</a>
+                <button type="submit" class="btn btn-primary">Добавить</button>
+            </form>
+        </div>
+    </div>
+</template>
+
+<!--форма редактирования модуля-->
+<template name="ui_module_admin_edit_module">
+    <div class="row">
+        <div class="col-9">
+            <form class="edit-module">
+                <input type="hidden" name="_id" value="{{module._id}}">
+                <div class="form-group">
+                    <label for="title">Назначение модуля</label>
+                    <input type="text" class="form-control form-control-lg" name="title" id="title" value="{{module.title}}">
+                </div>
+                <div class="form-group">
+                    <label for="module">Название модуля</label>
+                    <select class="form-control form-control-lg" name="module" id="module">
+                    {{#each module_types}}
+                        {{#if eq _id module.module}}
+                            <option value="{{_id}}" selected>{{name}}</option>
+                        {{else}}
+                            <option value="{{_id}}">{{name}}</option>
+                        {{/if}}
+                    {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="port">Порт модуля в Arduino</label>
+                    <input type="number" class="form-control form-control-lg" name="port" id="port" value="{{module.port}}">
+                </div>
+
+                <a class="btn btn-danger" href="{{pathFor 'admin.module.list'}}" role="button">Отмена</a>
+                <button type="submit" class="btn btn-primary">Редактировать</button>
+            </form>
+        </div>
+    </div>
+</template>
